@@ -1,7 +1,7 @@
 package com.anle.bsfmoneytransfer
 
+import com.anle.bsfmoneytransfer.service.AccountService
 import com.fasterxml.jackson.databind.ObjectMapper
-import org.junit.jupiter.api.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -29,6 +29,9 @@ class BsfMoneyTransferApplicationTests {
 
     @Autowired
     lateinit var mvc: MockMvc
+
+    @Autowired
+    lateinit var accountService: AccountService
 
     protected fun getRequest(url: String): RequestBuilder {
         return MockMvcRequestBuilders.get(url)

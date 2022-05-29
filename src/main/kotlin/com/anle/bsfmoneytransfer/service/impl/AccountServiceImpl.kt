@@ -7,7 +7,7 @@ import com.anle.bsfmoneytransfer.exception.DataInvalidException
 import com.anle.bsfmoneytransfer.exception.DataNotFoundException
 import com.anle.bsfmoneytransfer.extension.validatePositive
 import com.anle.bsfmoneytransfer.repository.AccountRepository
-import com.anle.bsfmoneytransfer.service.MoneyTransferService
+import com.anle.bsfmoneytransfer.service.AccountService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -16,9 +16,9 @@ import org.springframework.transaction.annotation.Transactional
 import java.math.BigDecimal
 
 @Service
-class MoneyTransferServiceImpl(val accountRepository: AccountRepository) : MoneyTransferService {
+class AccountServiceImpl(val accountRepository: AccountRepository) : AccountService {
 
-    private val log: Logger = LoggerFactory.getLogger(MoneyTransferService::class.java)
+    private val log: Logger = LoggerFactory.getLogger(AccountService::class.java)
 
     override fun getAccount(id: Long): Account = accountRepository.findById(id)
             .orElseThrow { DataNotFoundException("Account not found by id = $id") }

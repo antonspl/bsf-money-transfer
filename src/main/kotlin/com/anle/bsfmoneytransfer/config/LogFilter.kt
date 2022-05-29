@@ -54,7 +54,9 @@ class LogFilter : OncePerRequestFilter() {
 
     private fun excludeFromFilter(path: String): Boolean {
         val pathMatcher = AntPathMatcher()
-        return pathMatcher.match("**/swagger**", path)
+        return pathMatcher.match("**/swagger**", path) ||
+                pathMatcher.match("**/swagger-resources/**", path) ||
+                pathMatcher.match("**/v2/api-docs", path)
     }
 
     private fun formatBodyString(prefix: String, body: String): String {

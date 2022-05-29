@@ -9,7 +9,7 @@ import org.springframework.test.context.jdbc.SqlGroup
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import java.math.BigDecimal
 
-class MoneyTransferControllerTest : BsfMoneyTransferApplicationTests() {
+class AccountControllerTest : BsfMoneyTransferApplicationTests() {
 
     @Test
     @SqlGroup(Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = ["classpath:sql/accounts.sql"]),

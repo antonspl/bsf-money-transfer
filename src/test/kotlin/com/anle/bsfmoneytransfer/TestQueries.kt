@@ -9,10 +9,10 @@ import javax.persistence.Query
 
 @Suppress("UNCHECKED_CAST")
 @TestComponent
-class TestQueries() {
+class TestQueries {
 
     @Autowired
-    lateinit var entityManager: EntityManager
+    private lateinit var entityManager: EntityManager
 
     fun testQuery(query: String, params: Map<String?, Any?>): Query {
         val jpaQuery = entityManager.createQuery(query)
