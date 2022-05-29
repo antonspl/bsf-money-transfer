@@ -34,7 +34,6 @@ dependencies {
     implementation("junit:junit:4.12")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.h2database:h2")
-    annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
