@@ -107,10 +107,10 @@ class MoneyTransferControllerTest : BsfMoneyTransferApplicationTests() {
     }
 
     companion object {
-        private const val GET_ACCOUNT = "/account/%d"
-        private const val CREATE_ACCOUNT = "/account"
-        private const val INCREASE_BALANCE = "/account/%d/increase/%d"
-        private const val DECREASE_BALANCE = "/account/%d/decrease/%d"
-        private const val TRANSFER_MONEY = "/account/transfer"
+        private const val GET_ACCOUNT = "/api/v1/account/%d"
+        private const val CREATE_ACCOUNT = "/api/v1/account"
+        private const val INCREASE_BALANCE = "/api/v1/account/%d/increase/%d"
+        private const val DECREASE_BALANCE = "/api/v1/account/%d/decrease/%d"
+        private const val TRANSFER_MONEY = "/api/v1/account/transfer"
     }
 }

@@ -47,7 +47,7 @@ class MoneyTransferServiceImpl(val accountRepository: AccountRepository) : Money
     }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
-    override fun transferMoney(dto: TransferMoneyDto): Any {
+    override fun transferMoney(dto: TransferMoneyDto): TransferredAccountsDto {
         log.info("Start transferring money")
         dto.sum.validatePositive()
         val accountFrom = getAccount(dto.accountFromId)
