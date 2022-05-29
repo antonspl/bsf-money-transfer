@@ -8,7 +8,7 @@ import javax.persistence.*
 data class Account(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long = 0,
+        var id: Long? = null,
 
         @Column
         var balance: BigDecimal = BigDecimal.ZERO

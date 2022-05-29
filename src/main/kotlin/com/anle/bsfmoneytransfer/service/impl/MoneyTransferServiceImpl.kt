@@ -39,7 +39,9 @@ class MoneyTransferServiceImpl(val accountRepository: AccountRepository) : Money
         log.info("Start decreasing balance, accountId = $id")
         sum.validatePositive()
         val account = getAccount(id)
-        account.balance -= sum
+                .apply {
+                    balance -= sum
+                }
         return if (account.balance >= BigDecimal.ZERO) accountRepository.save(account) else
             throw DataInvalidException("Account balance cannot be less than 0")
     }
@@ -49,9 +51,11 @@ class MoneyTransferServiceImpl(val accountRepository: AccountRepository) : Money
         log.info("Start transferring money")
         dto.sum.validatePositive()
         val accountFrom = getAccount(dto.accountFromId)
-        val accountTo = getAccount(dto.accountToId)
-        accountFrom.balance -= dto.sum
+                .apply {
+                    balance -= dto.sum
+                }
         if (accountFrom.balance < BigDecimal.ZERO) throw DataInvalidException("Account balance cannot be less than 0")
+        val accountTo = getAccount(dto.accountToId)
         accountTo.balance += dto.sum
         return TransferredAccountsDto(accountRepository.save(accountFrom), accountRepository.save(accountTo))
     }
